@@ -1,0 +1,1190 @@
+{
+    "source": 2,
+    "revision": 8,
+    "description": null,
+    "createdBy": {
+      "displayName": "Mohammed Khan",
+      "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        }
+      },
+      "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+      "uniqueName": "mkhan@rms.com",
+      "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+      "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+    },
+    "createdOn": "2021-01-29T00:28:19.373Z",
+    "modifiedBy": {
+      "displayName": "Mohammed Khan",
+      "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        }
+      },
+      "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+      "uniqueName": "mkhan@rms.com",
+      "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+      "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+    },
+    "modifiedOn": "2022-03-04T04:11:18.793Z",
+    "isDeleted": false,
+    "variables": {
+      "Build_Repository_Name": {
+        "value": "RMS/asf-cicd"
+      },
+      "ExternalName": {
+        "value": "asf"
+      },
+      "New_NPE_Account": {
+        "value": "\"761119411229\""
+      },
+      "New_NPE_AccountRoleName": {
+        "value": "\"Cross-Account-Publish-Role\""
+      },
+      "New_NPE_Regions": {
+        "value": "\"eu-west-1\""
+      },
+      "ServiceName": {
+        "value": "asf-cicd"
+      },
+      "SourceRegistry": {
+        "value": "\"artifactory.rms-npe-internal.com/rms-docker-ci\""
+      }
+    },
+    "variableGroups": [],
+    "environments": [
+      {
+        "id": 635,
+        "name": "publish images",
+        "rank": 1,
+        "owner": {
+          "displayName": "Mohammed Khan",
+          "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+            }
+          },
+          "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "uniqueName": "mkhan@rms.com",
+          "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+          "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2025
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 2030
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2031
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 10,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "a433f589-fce1-4460-9ee6-44a624aeb1fb",
+                "version": "0.*",
+                "name": "Download Build Artifacts",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "buildType": "current",
+                  "project": "",
+                  "definition": "",
+                  "specificBuildWithTriggering": "false",
+                  "buildVersionToDownload": "latest",
+                  "allowPartiallySucceededBuilds": "false",
+                  "branchName": "refs/heads/master",
+                  "buildId": "",
+                  "tags": "",
+                  "downloadType": "single",
+                  "artifactName": "context",
+                  "itemPattern": "**",
+                  "downloadPath": "$(System.ArtifactsDirectory)",
+                  "cleanDestinationFolder": "false",
+                  "parallelizationLimit": "8",
+                  "checkDownloadedFiles": "false",
+                  "retryDownloadCount": "4",
+                  "extractTars": "false"
+                }
+              },
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Publish Images",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Publish-ContainerImages -ContextPath '$(System.ArtifactsDirectory)/context/context.json' -SourceRegistry $(SourceRegistry) -DestinationAccount $(New_NPE_Account) -DestinationAccountRoleName $(New_NPE_AccountRoleName) -DestinationRegions $(New_NPE_Regions)\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "ReleaseStarted",
+            "conditionType": 1,
+            "value": ""
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/rms-cicd-pipeline/_apis/public/Release/badge/38a48f6e-6d28-405c-ab98-d523f1956f02/87/635"
+      },
+      {
+        "id": 637,
+        "name": "eu-west-1 swap",
+        "rank": 4,
+        "owner": {
+          "displayName": "Mohammed Khan",
+          "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+            }
+          },
+          "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "uniqueName": "mkhan@rms.com",
+          "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+          "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2027
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 2028
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2033
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "healthPercent": 0,
+              "deploymentHealthOption": "Custom",
+              "tags": [
+                "$(ServiceName)"
+              ],
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 96,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 4,
+            "name": "Swap",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "a433f589-fce1-4460-9ee6-44a624aeb1fb",
+                "version": "0.*",
+                "name": "Download Build Artifacts",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "buildType": "current",
+                  "project": "",
+                  "definition": "",
+                  "specificBuildWithTriggering": "false",
+                  "buildVersionToDownload": "latest",
+                  "allowPartiallySucceededBuilds": "false",
+                  "branchName": "refs/heads/master",
+                  "buildId": "",
+                  "tags": "",
+                  "downloadType": "single",
+                  "artifactName": "context",
+                  "itemPattern": "**",
+                  "downloadPath": "$(System.ArtifactsDirectory)",
+                  "cleanDestinationFolder": "false",
+                  "parallelizationLimit": "8",
+                  "checkDownloadedFiles": "false",
+                  "retryDownloadCount": "4",
+                  "extractTars": "false"
+                }
+              },
+              {
+                "environment": {
+                  "BUILD_ARTIFACT_DIRECTORY": "$(System.ArtifactsDirectory)",
+                  "BUILD_NUMBER": "$(Build.BuildNumber)",
+                  "BUILD_REASON": "IndividualCI",
+                  "BUILD_REPOSITORY_NAME": "$(Build_Repository_Name)"
+                },
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Create Context",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "#New-Context",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {
+                  "BUILD_ARTIFACT_DIRECTORY": "$(System.ArtifactsDirectory)",
+                  "BUILD_REASON": "IndividualCI"
+                },
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Swap Deployment",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Invoke-Swap -ServiceName $(ServiceName) -DeactivatePreviousDeployment $True",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "eu-west-1 deploy",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/rms-cicd-pipeline/_apis/public/Release/badge/38a48f6e-6d28-405c-ab98-d523f1956f02/87/637"
+      },
+      {
+        "id": 809,
+        "name": "euw1 update agent",
+        "rank": 2,
+        "owner": {
+          "displayName": "Mohammed Khan",
+          "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+            }
+          },
+          "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "uniqueName": "mkhan@rms.com",
+          "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+          "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2565
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 2566
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 2567
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 103,
+              "demands": [
+                "AWS_CLUSTER -equals npe-app-euw1"
+              ],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "a433f589-fce1-4460-9ee6-44a624aeb1fb",
+                "version": "0.*",
+                "name": "Download Build Artifacts",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "buildType": "current",
+                  "project": "",
+                  "definition": "",
+                  "specificBuildWithTriggering": "false",
+                  "buildVersionToDownload": "latest",
+                  "allowPartiallySucceededBuilds": "false",
+                  "branchName": "refs/heads/master",
+                  "buildId": "",
+                  "tags": "",
+                  "downloadType": "single",
+                  "artifactName": "context",
+                  "itemPattern": "**",
+                  "downloadPath": "$(System.ArtifactsDirectory)",
+                  "cleanDestinationFolder": "false",
+                  "parallelizationLimit": "8",
+                  "checkDownloadedFiles": "false",
+                  "retryDownloadCount": "4",
+                  "extractTars": "false"
+                }
+              },
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Update Release Agent",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Update-ReleaseAgent -ContextPath '$(System.ArtifactsDirectory)/context/context.json'",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "publish images",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/rms-cicd-pipeline/_apis/public/Release/badge/38a48f6e-6d28-405c-ab98-d523f1956f02/87/809"
+      },
+      {
+        "id": 964,
+        "name": "eu-west-1 deploy",
+        "rank": 3,
+        "owner": {
+          "displayName": "Mohammed Khan",
+          "url": "https://spsprodcus2.vssps.visualstudio.com/A58c628c3-eb82-4b64-ae12-de03d3b256f4/_apis/Identities/2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+            }
+          },
+          "id": "2dd456c3-a11e-686a-8aa6-1506a9bf5277",
+          "uniqueName": "mkhan@rms.com",
+          "imageUrl": "https://dev.azure.com/rms-cicd-pipeline/_apis/GraphProfile/MemberAvatars/aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3",
+          "descriptor": "aad.MmRkNDU2YzMtYTExZS03ODZhLThhYTYtMTUwNmE5YmY1Mjc3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 3032
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 3033
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 3034
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "healthPercent": 0,
+              "deploymentHealthOption": "Custom",
+              "tags": [
+                "$(ServiceName)"
+              ],
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 96,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 4,
+            "name": "Deploy",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "a433f589-fce1-4460-9ee6-44a624aeb1fb",
+                "version": "0.*",
+                "name": "Download Build Artifacts",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "buildType": "current",
+                  "project": "",
+                  "definition": "",
+                  "specificBuildWithTriggering": "false",
+                  "buildVersionToDownload": "latest",
+                  "allowPartiallySucceededBuilds": "false",
+                  "branchName": "refs/heads/master",
+                  "buildId": "",
+                  "tags": "",
+                  "downloadType": "single",
+                  "artifactName": "context",
+                  "itemPattern": "**",
+                  "downloadPath": "$(System.ArtifactsDirectory)",
+                  "cleanDestinationFolder": "false",
+                  "parallelizationLimit": "8",
+                  "checkDownloadedFiles": "false",
+                  "retryDownloadCount": "4",
+                  "extractTars": "false"
+                }
+              },
+              {
+                "environment": {
+                  "BUILD_ARTIFACT_DIRECTORY": "$(System.ArtifactsDirectory)",
+                  "BUILD_NUMBER": "$(Build.BuildNumber)",
+                  "BUILD_REASON": "IndividualCI",
+                  "BUILD_REPOSITORY_NAME": "RMS/$(ServiceName)"
+                },
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Create Context",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "#New-Context",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Data Verification",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Invoke-DataVerification -ServiceName $(ServiceName)  -DataYamlFilePath '$(System.ArtifactsDirectory)/context/data.yaml'\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Data Registration",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Invoke-DataRegistration -ServiceName $(ServiceName)  -DataYamlFilePath '$(System.ArtifactsDirectory)/context/data.yaml'\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {
+                  "BUILD_ARTIFACT_DIRECTORY": "$(System.ArtifactsDirectory)",
+                  "BUILD_REASON": "IndividualCI"
+                },
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Deploy Build",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Invoke-Deploy -ServiceName $(ServiceName) -ExternalServiceName $(ExternalName) -DeploymentYamlFilePath '$(System.ArtifactsDirectory)/context/deployment.yaml' -ParametersYamlFilePath '$(System.ArtifactsDirectory)/context/parameters.yaml' -MetricsYamlFilePath '$(System.ArtifactsDirectory)/context/metrics.yaml'",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {
+                  "BUILD_ARTIFACT_DIRECTORY": "$(System.ArtifactsDirectory)",
+                  "BUILD_REASON": "IndividualCI"
+                },
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "Smoke Tests",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "Invoke-PipelineTestsByType -ArtifactsYamlPath '$(System.ArtifactsDirectory)/context/artifacts.yaml' -TestsYamlPath '$(System.ArtifactsDirectory)/context/tests.yaml' -ResultsRootPath '$(System.ArtifactsDirectory)' -Type Release",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              },
+              {
+                "environment": {},
+                "taskId": "0b0f01ed-7dde-43ff-9cbb-e48954daf9b1",
+                "version": "2.*",
+                "name": "Publish Test Results",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "testRunner": "JUnit",
+                  "testResultsFiles": "**/TEST-*.xml",
+                  "searchFolder": "$(System.ArtifactsDirectory)/test-results",
+                  "mergeTestResults": "false",
+                  "failTaskOnFailedTests": "true",
+                  "testRunTitle": "",
+                  "platform": "",
+                  "configuration": "",
+                  "publishRunAttachments": "true"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "euw1 update agent",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/rms-cicd-pipeline/_apis/public/Release/badge/38a48f6e-6d28-405c-ab98-d523f1956f02/87/964"
+      }
+    ],
+    "artifacts": [
+      {
+        "sourceId": "38a48f6e-6d28-405c-ab98-d523f1956f02:109",
+        "type": "Build",
+        "alias": "_RMS.asf-cicd",
+        "definitionReference": {
+          "artifactSourceDefinitionUrl": {
+            "id": "https://dev.azure.com/rms-cicd-pipeline/_permalink/_build/index?collectionId=c61afd3c-ac4f-456d-bf22-29084db47080&projectId=38a48f6e-6d28-405c-ab98-d523f1956f02&definitionId=109",
+            "name": ""
+          },
+          "defaultVersionBranch": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionSpecific": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionTags": {
+            "id": "ci",
+            "name": "ci"
+          },
+          "defaultVersionType": {
+            "id": "latestWithBuildDefinitionBranchAndTagsType",
+            "name": "Latest from the build pipeline default branch with tags"
+          },
+          "definition": {
+            "id": "109",
+            "name": "RMS.asf-cicd"
+          },
+          "definitions": {
+            "id": "",
+            "name": ""
+          },
+          "IsMultiDefinitionType": {
+            "id": "False",
+            "name": "False"
+          },
+          "project": {
+            "id": "38a48f6e-6d28-405c-ab98-d523f1956f02",
+            "name": "sdp"
+          },
+          "repository": {
+            "id": "",
+            "name": ""
+          }
+        },
+        "isPrimary": true,
+        "isRetained": false
+      }
+    ],
+    "triggers": [],
+    "releaseNameFormat": "1.0.$(Build.BuildNumber)",
+    "tags": [],
+    "properties": {
+      "DefinitionCreationSource": {
+        "$type": "System.String",
+        "$value": "ReleaseClone"
+      },
+      "IntegrateJiraWorkItems": {
+        "$type": "System.String",
+        "$value": "false"
+      },
+      "IntegrateBoardsWorkItems": {
+        "$type": "System.String",
+        "$value": "False"
+      }
+    },
+    "id": 87,
+    "name": "asf-cicd - lkg",
+    "path": "\\services - lkg",
+    "projectReference": null,
+    "url": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/definitions/87",
+    "_links": {
+      "self": {
+        "href": "https://vsrm.dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_apis/Release/definitions/87"
+      },
+      "web": {
+        "href": "https://dev.azure.com/rms-cicd-pipeline/38a48f6e-6d28-405c-ab98-d523f1956f02/_release?definitionId=87"
+      }
+    }
+  }
