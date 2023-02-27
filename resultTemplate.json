@@ -1,0 +1,23 @@
+{
+    "source": "undefined",
+    "revision": 2,
+    "description": null,
+    "createdBy": null,
+    "createdOn": "0001-01-01T00:00:00",
+    "modifiedBy": null,
+    "modifiedOn": "0001-01-01T00:00:00",
+    "isDeleted": false,
+    "variables": {},
+    "variableGroups": [],
+    "environments": [
+     ],
+    "artifacts": [],
+    "triggers": [],
+    "releaseNameFormat": null,
+    "tags": [],
+    "properties": {},
+    "id": 0,
+    "name": "test2",
+    "projectReference": null,
+    "_links": {}
+  }
