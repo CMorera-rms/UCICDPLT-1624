@@ -1,26 +1,27 @@
-### Functions ###
-#param ([String[]]  $usersList)
 
-$Organization = "jvargasrms2023"
+$hardcodedData =  Get-Content -Raw -Path parameters.json | ConvertFrom-Json 
 
-$ProjectId = "9a8bf53c-c0a9-4784-ba80-49cfea97de11"
-$ProjectName = "consoleApp"
+$Organization = $hardcodedData.organization
 
-$Token = "3bsxknob2jstljzelzghyg7zfnajjcggzbpxtdu2noxc7lut2qya"
+$ProjectId = $hardcodedData.projectId
+$ProjectName = $hardcodedData.projectName
+
+$Token = $hardcodedData.token
 $User = ''
 $Pass = $Token
 $Headers = @{ Authorization = "Basic "+ [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($User+":"+$Pass)) }
-
 
 function New-ComposeJsonBodyOptions {
     write-host "-----------------------------------------------------------"
     write-host "Compose request body JSON"
 
+    #Read template data
     $Json = Get-Content -Raw -Path template.json | ConvertFrom-Json 
     
     #BuildDefinition id should be summited
-    $BuildDefinitionId = 7
-    #write-host $Json
+    $BuildDefinitionId = $hardcodedData.buildDefinitionId
+
+    #Load artifacts data according to the $BuildDefinitionId
     New-ComposeArtifactsJson -BuildDefinitionId $BuildDefinitionId -JsonBody $Json
 
     return $Json
@@ -38,14 +39,25 @@ function New-ComposeArtifactsJson {
     #Get the lkg build id according to the build definition id
     #TODO: Do functionality to get the lkg id
     #write-host $BuildDefinitionId
-    $BuildDefinitionName = "webapi-manual-pipeline-build"
-    #$BuildLKG = 30
-    $BuildId = 3
+    $BuildLKG =  $hardcodedData.buildId
+    $BuildId = $BuildLKG
    
+    #Get builddata
+    $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"?api-version=4.1"
+    $BuildData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
+    $BuildDefinitionName = $BuildData.definition.name
+    $BuildNumber = $BuildData.buildNumber
+    
+    #write-host $Url
+    #write-host $BuildData.definition.name
+    write-host $BuildNumber
+    
     #Get artifact data from AzureDevOps API according to the lkg build id
     $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"/artifacts?api-version=4.1"
-    $ArtifactData = Invoke-RestMethod  -Uri $Url  -Method Get  -Headers $Headers
-    #write-host $ArtifactData.value
+    $ArtifactData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
+  
+    write-host $Url
+    #write-host $ArtifactData
 
     $ArtifactId = $ArtifactData.value.id
     $ArtifactName = $ArtifactData.value.name
@@ -53,41 +65,41 @@ function New-ComposeArtifactsJson {
     #write-host $ArtifactId
     #write-host $ArtifactName
 
-    write-host $JsonBody.artifacts.alias
+    write-host $JsonBody.artifacts
 
     #Update values on JSON body template
-    $JsonBody.artifacts.alias1 = $ArtifactName
+    $Artifact = $JsonBody.artifacts[0]
+    $Artifact.alias = $ArtifactName
 
     #Update defaultVersionSpecific data
     #write-host $JsonBody.artifacts.definitionReference.defaultVersionSpecific
-    $JsonBody.artifacts.definitionReference.defaultVersionSpecific.id = $ArtifactId
-    $JsonBody.artifacts.definitionReference.defaultVersionSpecific.name = $ArtifactName
+    $Artifact.definitionReference.defaultVersionSpecific.id = $ArtifactId
+    $Artifact.definitionReference.defaultVersionSpecific.name = $ArtifactName
     #write-host $JsonBody.artifacts.definitionReference.defaultVersionSpecific
 
     #Update definition data
     #write-host $JsonBody.artifacts.definitionReference.definition
-    $JsonBody.artifacts.definitionReference.definitions.id = $BuildDefinitionId
-    $JsonBody.artifacts.definitionReference.definitions.name = $BuildDefinitionName
+    $Artifact.definitionReference.definition.id = $BuildDefinitionId
+    $Artifact.definitionReference.definition.name = $BuildDefinitionName
     #write-host $JsonBody.artifacts.definitionReference.definition
 
     #Update project data
     #write-host $JsonBody.artifacts.definitionReference.project
-    $JsonBody.artifacts.definitionReference.project.id = $ProjectId
-    $JsonBody.artifacts.definitionReference.project.name = $ProjectName
+    $Artifact.definitionReference.project.id = $ProjectId
+    $Artifact.definitionReference.project.name = $ProjectName
     #write-host $JsonBody.artifacts.definitionReference.project
 
 }
 
 function New-ComposeEnviromentsJson {
     param (
-    
         [parameter(Mandatory = $false)]
         [PSObject] $JsonBody
     )
    write-host $JsonBody.source
 }
 
-function New-ComposeVariablesJson{
+function New-ComposeVariablesJson {
     param (
         [parameter(Mandatory = $false)]
         [PSObject] $JsonBody
@@ -97,22 +109,24 @@ function New-ComposeVariablesJson{
 }
 
 
+
 function New-CreateReleasePipeline {
     write-host "-----------------------------------------------------------"
-    $JsonBody =  New-ComposeJsonBodyOptions | ConvertTo-Json -Depth 9
 
-    #$Json = Get-Content -Raw -Path template.json | ConvertFrom-Json  | ConvertTo-Json
-
-    #Write-Host ($JsonBody.artifacts.definitionReference.defaultVersionSpecific)
-    #Write-Host ($JsonBody.artifacts.definitionReference.definition )
-    #Write-Host ($JsonBody.artifacts.definitionReference.project )
-
-    #write-host "Do Create Release Pipeline Request"
-    $url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
-    #write-host $url 
+    #Compose Release Pipeline Request
     
-    $result = Invoke-RestMethod -ContentType "application/json" -Uri $url  -Method Post  -Body $JsonBody  -Headers $headers
+    #Compose the url
+    $Url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
+    write-host $Url 
+
+    #Compose body options
+    $JsonBody =  New-ComposeJsonBodyOptions | ConvertTo-Json -Depth 9
+    $JsonBody | Out-File "./bodyResult.json"
+
     write-host $result 
+    #$result = Invoke-RestMethod -ContentType "application/json" -Uri $url  -Method Post  -Body $JsonBody  -Headers $headers
+
+    
     
 }
 
