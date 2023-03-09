@@ -1,0 +1,700 @@
+{
+    "source": 2,
+    "revision": 3,
+    "description": null,
+    "createdBy": {
+      "displayName": "Rolando Solano",
+      "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        }
+      },
+      "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+      "uniqueName": "rsolano@rms.com",
+      "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+      "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+    },
+    "createdOn": "2023-03-08T22:16:52.733Z",
+    "modifiedBy": {
+      "displayName": "Rolando Solano",
+      "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        }
+      },
+      "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+      "uniqueName": "rsolano@rms.com",
+      "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+      "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+    },
+    "modifiedOn": "2023-03-08T22:18:47.487Z",
+    "isDeleted": false,
+    "variables": {
+      "Build_Repository_Name": {
+        "value": "test"
+      },
+      "ExternalName": {
+        "value": "test"
+      },
+      "ServiceName": {
+        "value": "test"
+      },
+      "SourceRegistry": {
+        "value": "test"
+      }
+    },
+    "variableGroups": [],
+    "environments": [
+      {
+        "id": 5,
+        "name": "publish image Test",
+        "rank": 1,
+        "owner": {
+          "displayName": "Rolando Solano",
+          "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+            }
+          },
+          "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "uniqueName": "rsolano@rms.com",
+          "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+          "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 13
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 20
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 21
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 13,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": []
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "ReleaseStarted",
+            "conditionType": 1,
+            "value": ""
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/jvargasrms2023/_apis/public/Release/badge/9a8bf53c-c0a9-4784-ba80-49cfea97de11/2/5"
+      },
+      {
+        "id": 6,
+        "name": "update agent Test",
+        "rank": 2,
+        "owner": {
+          "displayName": "Rolando Solano",
+          "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+            }
+          },
+          "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "uniqueName": "rsolano@rms.com",
+          "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+          "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 14
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 19
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 22
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 13,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": []
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "publish image Test",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/jvargasrms2023/_apis/public/Release/badge/9a8bf53c-c0a9-4784-ba80-49cfea97de11/2/6"
+      },
+      {
+        "id": 7,
+        "name": "deploy Test",
+        "rank": 3,
+        "owner": {
+          "displayName": "Rolando Solano",
+          "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+            }
+          },
+          "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "uniqueName": "rsolano@rms.com",
+          "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+          "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 15
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 18
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 23
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 13,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": []
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "update agent Test",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/jvargasrms2023/_apis/public/Release/badge/9a8bf53c-c0a9-4784-ba80-49cfea97de11/2/7"
+      },
+      {
+        "id": 8,
+        "name": "swap Test",
+        "rank": 4,
+        "owner": {
+          "displayName": "Rolando Solano",
+          "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+            }
+          },
+          "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
+          "uniqueName": "rsolano@rms.com",
+          "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
+          "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
+        },
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 16
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 17
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false,
+              "id": 24
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },
+              "queueId": 13,
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": []
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "deploy Test",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],
+        "currentRelease": {
+          "id": 0,
+          "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/releases/0",
+          "_links": {}
+        },
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/jvargasrms2023/_apis/public/Release/badge/9a8bf53c-c0a9-4784-ba80-49cfea97de11/2/8"
+      }
+    ],
+    "artifacts": [
+      {
+        "sourceId": "9a8bf53c-c0a9-4784-ba80-49cfea97de11:1",
+        "type": "Build",
+        "alias": "_jvargasrmscr2022.consoleApp",
+        "definitionReference": {
+          "artifactSourceDefinitionUrl": {
+            "id": "https://dev.azure.com/jvargasrms2023/_permalink/_build/index?collectionId=8fc4d6ff-bc36-417f-a7a4-4825d668ebc2&projectId=9a8bf53c-c0a9-4784-ba80-49cfea97de11&definitionId=1",
+            "name": ""
+          },
+          "defaultVersionBranch": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionSpecific": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionTags": {
+            "id": "ci",
+            "name": "ci"
+          },
+          "defaultVersionType": {
+            "id": "latestWithBuildDefinitionBranchAndTagsType",
+            "name": "Latest from the build pipeline default branch with tags"
+          },
+          "definition": {
+            "id": "1",
+            "name": "jvargasrmscr2022.consoleApp"
+          },
+          "definitions": {
+            "id": "",
+            "name": ""
+          },
+          "IsMultiDefinitionType": {
+            "id": "False",
+            "name": "False"
+          },
+          "project": {
+            "id": "9a8bf53c-c0a9-4784-ba80-49cfea97de11",
+            "name": "consoleApp"
+          },
+          "repository": {
+            "id": "",
+            "name": ""
+          }
+        },
+        "isPrimary": true,
+        "isRetained": false
+      }
+    ],
+    "triggers": [],
+    "releaseNameFormat": "Release-$(rev:r)",
+    "tags": [],
+    "properties": {
+      "DefinitionCreationSource": {
+        "$type": "System.String",
+        "$value": "ReleaseNew"
+      },
+      "IntegrateBoardsWorkItems": {
+        "$type": "System.String",
+        "$value": "False"
+      },
+      "IntegrateJiraWorkItems": {
+        "$type": "System.String",
+        "$value": "false"
+      }
+    },
+    "id": 2,
+    "name": "RS Test release",
+    "path": "\\services - lkg",
+    "projectReference": null,
+    "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/definitions/2",
+    "_links": {
+      "self": {
+        "href": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/definitions/2"
+      },
+      "web": {
+        "href": "https://dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_release?definitionId=2"
+      }
+    }
+  }

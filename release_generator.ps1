@@ -1,12 +1,12 @@
 ### Functions ###
 #param ([String[]]  $usersList)
 
-$Organization = "cmorera"
+$Organization = "jvargasrms2023"
 
-$ProjectId = "3b0727f4-d94e-433c-ad69-9216c50ea468"
-$ProjectName = "cata-test"
+$ProjectId = "9a8bf53c-c0a9-4784-ba80-49cfea97de11"
+$ProjectName = "consoleApp"
 
-$Token = "kttwvkvlaojpfirum4nvzcqnwduw6hvkyueqdzmncbiabldq5hta"
+$Token = "3bsxknob2jstljzelzghyg7zfnajjcggzbpxtdu2noxc7lut2qya"
 $User = ''
 $Pass = $Token
 $Headers = @{ Authorization = "Basic "+ [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($User+":"+$Pass)) }
@@ -39,8 +39,8 @@ function New-ComposeArtifactsJson {
     #TODO: Do functionality to get the lkg id
     #write-host $BuildDefinitionId
     $BuildDefinitionName = "webapi-manual-pipeline-build"
-    $BuildLKG = 30
-    $BuildId = $BuildLKG
+    #$BuildLKG = 30
+    $BuildId = 3
    
     #Get artifact data from AzureDevOps API according to the lkg build id
     $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"/artifacts?api-version=4.1"
