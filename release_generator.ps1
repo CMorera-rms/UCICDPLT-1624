@@ -1,9 +1,6 @@
 
 $hardcodedData =  Get-Content -Raw -Path parameters.json | ConvertFrom-Json 
-
 $Organization = $hardcodedData.organization
-
-$ProjectId = $hardcodedData.projectId
 $ProjectName = $hardcodedData.projectName
 
 $Token = $hardcodedData.token
@@ -18,11 +15,11 @@ function New-ComposeJsonBodyOptions {
     #Read template data
     $Json = Get-Content -Raw -Path template.json | ConvertFrom-Json 
     
-    #BuildDefinition id should be summited
-    $BuildDefinitionId = $hardcodedData.buildDefinitionId
+    #BuildNumber should be summited
+    $BuildNumber = $hardcodedData.BuildNumber
 
-    #Load artifacts data according to the $BuildDefinitionId
-    New-ComposeArtifactsJson -BuildDefinitionId $BuildDefinitionId -JsonBody $Json
+    #Load artifacts data according to the $BuildNumber
+    New-ComposeArtifactsJson -BuildNumber $BuildNumber -JsonBody $Json
 
     return $Json
 }
@@ -30,23 +27,38 @@ function New-ComposeJsonBodyOptions {
 function New-ComposeArtifactsJson {
     param (
         [parameter(Mandatory = $false)]
-        [int]$BuildDefinitionId = -1,
+        [string]$BuildNumber = -1,
 
         [parameter(Mandatory = $false)]
         [PSObject] $JsonBody
     )
-    
-    #Get the lkg build id according to the build definition id
-    #TODO: Do functionality to get the lkg id
-    #write-host $BuildDefinitionId
-    $BuildLKG =  $hardcodedData.buildId
-    $BuildId = $BuildLKG
+
+    # #Get build pipeline base on Pipeline Definition
+    # $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/pipelines/"+$BuildDefinitionId+"?api-version=4.1"
+    # $BuildPipelineData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers        
    
-    #Get builddata
-    $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"?api-version=4.1"
+    # #Get builddata
+    $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds?buildNumber="+$BuildNumber+"&api-version=4.1"
+    write-host $Url 
     $BuildData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
-    $BuildDefinitionName = $BuildData.definition.name
-    $BuildNumber = $BuildData.buildNumber
+
+    if ($null -eq $BuildData){  
+        Write-Output "Build can't be found" 
+        return 
+    } 
+    
+    if ($BuildData.value.count -eq 0){ 
+        Write-Output "Build can't be found" 
+        return 
+    }
+
+    $BuildInfo = $BuildData.value
+
+    $BuildDefinitionId = $BuildInfo.definition.id
+    $BuildDefinitionName = $BuildInfo.definition.name
+    $BuildId = $BuildInfo.id
+
+    $ProjectId = $BuildInfo.project.id    
     
     #write-host $Url
     #write-host $BuildData.definition.name
@@ -56,8 +68,18 @@ function New-ComposeArtifactsJson {
     $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"/artifacts?api-version=4.1"
     $ArtifactData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
   
-    write-host $Url
+    #write-host $Url
     #write-host $ArtifactData
+
+    if ($null -eq $ArtifactData){  
+        Write-Output "Artifact can't be found" 
+        return 
+    } 
+    
+    if ($ArtifactData.value.count -eq 0){ 
+        Write-Output "Artifact can't be found" 
+        return 
+    }
 
     $ArtifactId = $ArtifactData.value.id
     $ArtifactName = $ArtifactData.value.name
@@ -116,8 +138,8 @@ function New-CreateReleasePipeline {
     #Compose Release Pipeline Request
     
     #Compose the url
-    $Url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
-    write-host $Url 
+    # $Url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
+    # write-host $Url 
 
     #Compose body options
     $JsonBody =  New-ComposeJsonBodyOptions | ConvertTo-Json -Depth 9

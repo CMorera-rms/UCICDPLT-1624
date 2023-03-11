@@ -1,35 +1,11 @@
 {
-    "source": 2,
-    "revision": 3,
+    "source": null,
+    "revision": null,
     "description": null,
-    "createdBy": {
-      "displayName": "Rolando Solano",
-      "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
-      "_links": {
-        "avatar": {
-          "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
-        }
-      },
-      "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
-      "uniqueName": "rsolano@rms.com",
-      "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
-      "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
-    },
-    "createdOn": "2023-03-08T22:16:52.733Z",
-    "modifiedBy": {
-      "displayName": "Rolando Solano",
-      "url": "https://spsprodcus5.vssps.visualstudio.com/Ab95e1ad7-109a-4f3b-a5c4-d4abc786d3e1/_apis/Identities/7a5aaaa3-300b-628f-bc97-297e42165e47",
-      "_links": {
-        "avatar": {
-          "href": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
-        }
-      },
-      "id": "7a5aaaa3-300b-628f-bc97-297e42165e47",
-      "uniqueName": "rsolano@rms.com",
-      "imageUrl": "https://dev.azure.com/jvargasrms2023/_apis/GraphProfile/MemberAvatars/aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3",
-      "descriptor": "aad.N2E1YWFhYTMtMzAwYi03MjhmLWJjOTctMjk3ZTQyMTY1ZTQ3"
-    },
-    "modifiedOn": "2023-03-08T22:18:47.487Z",
+    "createdBy": null,
+    "createdOn": null,
+    "modifiedBy": null,
+    "modifiedOn": null,
     "isDeleted": false,
     "variables": {
       "Build_Repository_Name": {
@@ -620,10 +596,10 @@
       {
         "sourceId": "9a8bf53c-c0a9-4784-ba80-49cfea97de11:1",
         "type": "Build",
-        "alias": "_jvargasrmscr2022.consoleApp",
+        "alias": "_jvargasrmscr2022.consoleApp23232",
         "definitionReference": {
           "artifactSourceDefinitionUrl": {
-            "id": "https://dev.azure.com/jvargasrms2023/_permalink/_build/index?collectionId=8fc4d6ff-bc36-417f-a7a4-4825d668ebc2&projectId=9a8bf53c-c0a9-4784-ba80-49cfea97de11&definitionId=1",
+            "id": "",
             "name": ""
           },
           "defaultVersionBranch": {
@@ -685,7 +661,7 @@
       }
     },
     "id": 2,
-    "name": "RS Test release",
+    "name": "RS Test release 5",
     "path": "\\services - lkg",
     "projectReference": null,
     "url": "https://vsrm.dev.azure.com/jvargasrms2023/9a8bf53c-c0a9-4784-ba80-49cfea97de11/_apis/Release/definitions/2",
