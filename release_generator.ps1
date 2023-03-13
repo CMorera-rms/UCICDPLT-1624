@@ -1,27 +1,35 @@
 
-$hardcodedData =  Get-Content -Raw -Path parameters.json | ConvertFrom-Json 
-$Organization = $hardcodedData.organization
-$ProjectName = $hardcodedData.projectName
+$HardcodedData =  Get-Content -Raw -Path parameters.json | ConvertFrom-Json 
+$Organization = $HardcodedData.organization
+$ProjectName = $HardcodedData.projectName
+$PipelineName = $HardcodedData.pipelineName
+$PreApprovalsList = $HardcodedData.preApprovals
+$PostApprovalsList = $HardcodedData.postApprovals
+$BuildNumber = $HardcodedData.buildNumber
 
-$Token = $hardcodedData.token
+$Token = $HardcodedData.token
 $User = ''
 $Pass = $Token
 $Headers = @{ Authorization = "Basic "+ [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($User+":"+$Pass)) }
 
 function New-ComposeJsonBodyOptions {
-    write-host "-----------------------------------------------------------"
-    write-host "Compose request body JSON"
-
-    #Read template data
-    $Json = Get-Content -Raw -Path template.json | ConvertFrom-Json 
+    #Compose request body JSON
+    write-host "Compose request body JSON  ------------------------------------------------"
     
-    #BuildNumber should be summited
-    $BuildNumber = $hardcodedData.BuildNumber
+    #Read template data
+    $JsonBody = Get-Content -Raw -Path template.json | ConvertFrom-Json 
+
+    #Set release name 
+    $JsonBody.name = $PipelineName
+
+    #Set release name
+    New-ComposePreDeployApprovalsJson -JsonBody $JsonBody
+    New-ComposePostDeployApprovalsJson -JsonBody $JsonBody
 
     #Load artifacts data according to the $BuildNumber
-    New-ComposeArtifactsJson -BuildNumber $BuildNumber -JsonBody $Json
+    New-ComposeArtifactsJson -BuildNumber $BuildNumber -JsonBody $JsonBody
 
-    return $Json
+    return $JsonBody
 }
 
 function New-ComposeArtifactsJson {
@@ -31,15 +39,10 @@ function New-ComposeArtifactsJson {
 
         [parameter(Mandatory = $false)]
         [PSObject] $JsonBody
-    )
-
-    # #Get build pipeline base on Pipeline Definition
-    # $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/pipelines/"+$BuildDefinitionId+"?api-version=4.1"
-    # $BuildPipelineData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers        
+    )      
    
     # #Get builddata
     $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds?buildNumber="+$BuildNumber+"&api-version=4.1"
-    write-host $Url 
     $BuildData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
 
     if ($null -eq $BuildData){  
@@ -60,17 +63,10 @@ function New-ComposeArtifactsJson {
 
     $ProjectId = $BuildInfo.project.id    
     
-    #write-host $Url
-    #write-host $BuildData.definition.name
-    write-host $BuildNumber
-    
     #Get artifact data from AzureDevOps API according to the lkg build id
     $Url = "https://dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/build/builds/"+$BuildId+"/artifacts?api-version=4.1"
     $ArtifactData = Invoke-RestMethod -Uri $Url -Method Get -Headers $Headers
   
-    #write-host $Url
-    #write-host $ArtifactData
-
     if ($null -eq $ArtifactData){  
         Write-Output "Artifact can't be found" 
         return 
@@ -84,41 +80,79 @@ function New-ComposeArtifactsJson {
     $ArtifactId = $ArtifactData.value.id
     $ArtifactName = $ArtifactData.value.name
 
-    #write-host $ArtifactId
-    #write-host $ArtifactName
-
-    write-host $JsonBody.artifacts
-
     #Update values on JSON body template
     $Artifact = $JsonBody.artifacts[0]
     $Artifact.alias = $ArtifactName
 
     #Update defaultVersionSpecific data
-    #write-host $JsonBody.artifacts.definitionReference.defaultVersionSpecific
     $Artifact.definitionReference.defaultVersionSpecific.id = $ArtifactId
     $Artifact.definitionReference.defaultVersionSpecific.name = $ArtifactName
-    #write-host $JsonBody.artifacts.definitionReference.defaultVersionSpecific
 
     #Update definition data
-    #write-host $JsonBody.artifacts.definitionReference.definition
     $Artifact.definitionReference.definition.id = $BuildDefinitionId
     $Artifact.definitionReference.definition.name = $BuildDefinitionName
-    #write-host $JsonBody.artifacts.definitionReference.definition
 
     #Update project data
-    #write-host $JsonBody.artifacts.definitionReference.project
     $Artifact.definitionReference.project.id = $ProjectId
     $Artifact.definitionReference.project.name = $ProjectName
-    #write-host $JsonBody.artifacts.definitionReference.project
-
 }
 
-function New-ComposeEnviromentsJson {
+function New-ComposePreDeployApprovalsJson {
     param (
         [parameter(Mandatory = $false)]
         [PSObject] $JsonBody
     )
-   write-host $JsonBody.source
+    
+    $Enviroments = $JsonBody.environments 
+    $ApprovalsLength = $PreApprovalsList.Count
+
+    if($ApprovalsLength -gt 0 ){ 
+        foreach($Enviroment in $Enviroments) {
+            $ApprovalsData = New-ComposeApprovalsJson $PreApprovalsList
+            $Enviroment.preDeployApprovals.approvals = $ApprovalsData
+        }
+    }
+}
+
+function New-ComposePostDeployApprovalsJson {
+    param (
+        [parameter(Mandatory = $false)]
+        [PSObject] $JsonBody
+    )
+    
+    $Enviroments = $JsonBody.environments 
+    $ApprovalsLength = $PostApprovalsList.Count
+
+    if($ApprovalsLength -gt 0 ){ 
+        foreach($Enviroment in $Enviroments) {
+            $ApprovalsData = New-ComposeApprovalsJson $PostApprovalsList
+            $Enviroment.postDeployApprovals.approvals = $ApprovalsData
+        }
+    }
+}
+
+function New-ComposeApprovalsJson {
+    param (
+        [parameter(Mandatory = $false)]
+        [PSObject] $ApprovalsList
+    )
+    $ApprovalsData = @()
+
+    foreach($Approver in $ApprovalsList) {
+        $Index = $ApprovalsList.IndexOf($Approver)
+        $ApproverData =  @{
+            "rank"= $Index+1;
+            "isAutomated"= $false
+            "isNotificationOn"= $false
+            "approver"=  @{
+                "displayName" =  $null
+                "id" =  $Approver.id
+            }
+        }
+        $ApprovalsData += $ApproverData
+    }
+   return  $ApprovalsData
+
 }
 
 function New-ComposeVariablesJson {
@@ -130,26 +164,17 @@ function New-ComposeVariablesJson {
    write-host $JsonBody.source
 }
 
-
-
 function New-CreateReleasePipeline {
-    write-host "-----------------------------------------------------------"
-
     #Compose Release Pipeline Request
     
-    #Compose the url
-    # $Url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
-    # write-host $Url 
+    #Compose URL
+    $Url = "https://vsrm.dev.azure.com/"+$Organization+"/"+$ProjectName+"/_apis/release/definitions?api-version=7.1-preview.4"
 
     #Compose body options
     $JsonBody =  New-ComposeJsonBodyOptions | ConvertTo-Json -Depth 9
-    $JsonBody | Out-File "./bodyResult.json"
-
+    
+    $result = Invoke-RestMethod -ContentType "application/json" -Uri $url  -Method Post  -Body $JsonBody  -Headers $headers
     write-host $result 
-    #$result = Invoke-RestMethod -ContentType "application/json" -Uri $url  -Method Post  -Body $JsonBody  -Headers $headers
-
-    
-    
 }
 
 New-CreateReleasePipeline
