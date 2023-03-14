@@ -1,22 +1,22 @@
 {
     "organization" : "jvargasrms2023",    
     "projectName" : "consoleApp",
-    "token" : "rpniiy6isnqz3jhivw4l7bhpanht2zocirlppll2e6sruhaty34q",
+    "token" : "33g3z3m6qgru26z3ogt7vnxaawie3vitooao3gfcf6rygxaksnxq",
     "buildNumber": "20230308.4",
     "pipelineName": "release-pipeline-name",
     "preApprovals": [
-        {
-            "user":"cmorera@rms.com",
-            "id": "7d871458-2337-6641-a6f2-c6f05301c092"
-        },
-        {
-            "user":"jvargas@rms.com",
-            "id": "05528e39-f7aa-6fe3-a0ec-02c0a2e68725"
-        },
-        {
-            "user":"rsolano@rms.com",
-            "id": "7a5aaaa3-300b-628f-bc97-297e42165e47"
-        }
+      {
+        "user":"cmorera@rms.com",
+        "id": "7d871458-2337-6641-a6f2-c6f05301c092"
+      },
+      {
+          "user":"jvargas@rms.com",
+          "id": "05528e39-f7aa-6fe3-a0ec-02c0a2e68725"
+      },
+      {
+          "user":"rsolano@rms.com",
+          "id": "7a5aaaa3-300b-628f-bc97-297e42165e47"
+      }
     ],
     "postApprovals": [
         {

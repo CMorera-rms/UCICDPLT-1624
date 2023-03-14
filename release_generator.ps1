@@ -136,7 +136,9 @@ function New-ComposeApprovalsJson {
         [parameter(Mandatory = $false)]
         [PSObject] $ApprovalsList
     )
-    $ApprovalsData = @()
+    #$ApprovalsData = @()
+
+    $ApprovalsData = New-Object System.Collections.ArrayList
 
     foreach($Approver in $ApprovalsList) {
         $Index = $ApprovalsList.IndexOf($Approver)
@@ -149,9 +151,13 @@ function New-ComposeApprovalsJson {
                 "id" =  $Approver.id
             }
         }
-        $ApprovalsData += $ApproverData
+        
+        $ApprovalsData.Add($ApproverData)        
+
+        # $ApprovalsData += $ApproverData
     }
-   return  $ApprovalsData
+    
+    return $ApprovalsData
 
 }
 
