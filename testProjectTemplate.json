@@ -1,0 +1,720 @@
+{
+    "source": 2,
+    "revision": null,
+    "description": null,
+    "createdBy": null,
+    "createdOn": "",
+    "modifiedBy": null,
+    "modifiedOn": "",
+    "isDeleted": false,
+    "variables": {
+      "Build_Repository_Name": {
+        "value": ""
+      },
+      "ExternalName": {
+        "value": ""
+      },
+      "New_NPE_Account": {
+        "value": ""
+      },
+      "New_NPE_AccountRoleName": {
+        "value": ""
+      },
+      "New_NPE_Regions": {
+        "value": ""
+      },
+      "ServiceName": {
+        "value": ""
+      },
+      "SourceRegistry": {
+        "value": ""
+      }
+    },
+    "variableGroups": [],
+    "environments": [
+      {      
+        "name": "publish images",
+        "rank": 1,      
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false            
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },            
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "PowerShell Script",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "# Write your PowerShell commands here.\n\nWrite-Host \"publish images\"\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "progressPreference": "silentlyContinue",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "ReleaseStarted",
+            "conditionType": 1,
+            "value": ""
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],      
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": ""
+      },
+      {      
+        "name": "update agent",
+        "rank": 2,      
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false            
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 20
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },            
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "PowerShell Script",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "# Write your PowerShell commands here.\n\nWrite-Host \"update agent\"\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "progressPreference": "silentlyContinue",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "publish images",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],      
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": ""
+      },
+      {      
+        "name": "deploy",
+        "rank": 3,      
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 23
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },            
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "PowerShell Script",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "# Write your PowerShell commands here.\n\nWrite-Host \"deploy\"\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "progressPreference": "silentlyContinue",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "update agent",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],      
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": "https://vsrm.dev.azure.com/UCICDPLT-1624/_apis/public/Release/badge/335cf744-ef73-4d1f-ac11-988492bf3064/3/8"
+      },
+      {      
+        "name": "swap",
+        "rank": 4,      
+        "variables": {},
+        "variableGroups": [],
+        "preDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 1
+          }
+        },
+        "deployStep": {
+          "id": 26
+        },
+        "postDeployApprovals": {
+          "approvals": [
+            {
+              "rank": 1,
+              "isAutomated": true,
+              "isNotificationOn": false
+            }
+          ],
+          "approvalOptions": {
+            "requiredApproverCount": null,
+            "releaseCreatorCanBeApprover": false,
+            "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+            "enforceIdentityRevalidation": false,
+            "timeoutInMinutes": 0,
+            "executionOrder": 2
+          }
+        },
+        "deployPhases": [
+          {
+            "deploymentInput": {
+              "parallelExecution": {
+                "parallelExecutionType": 0
+              },
+              "agentSpecification": null,
+              "skipArtifactsDownload": false,
+              "artifactsDownloadInput": {
+                "downloadInputs": []
+              },            
+              "demands": [],
+              "enableAccessToken": false,
+              "timeoutInMinutes": 0,
+              "jobCancelTimeoutInMinutes": 1,
+              "condition": "succeeded()",
+              "overrideInputs": {}
+            },
+            "rank": 1,
+            "phaseType": 1,
+            "name": "Agent job",
+            "refName": null,
+            "workflowTasks": [
+              {
+                "environment": {},
+                "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                "version": "2.*",
+                "name": "PowerShell Script",
+                "refName": "",
+                "enabled": true,
+                "alwaysRun": false,
+                "continueOnError": false,
+                "timeoutInMinutes": 0,
+                "retryCountOnTaskFailure": 0,
+                "definitionType": "task",
+                "overrideInputs": {},
+                "condition": "succeeded()",
+                "inputs": {
+                  "targetType": "inline",
+                  "filePath": "",
+                  "arguments": "",
+                  "script": "# Write your PowerShell commands here.\n\nWrite-Host \"swap\"\n",
+                  "errorActionPreference": "stop",
+                  "warningPreference": "default",
+                  "informationPreference": "default",
+                  "verbosePreference": "default",
+                  "debugPreference": "default",
+                  "progressPreference": "silentlyContinue",
+                  "failOnStderr": "false",
+                  "showWarnings": "false",
+                  "ignoreLASTEXITCODE": "false",
+                  "pwsh": "false",
+                  "workingDirectory": "",
+                  "runScriptInSeparateScope": "false"
+                }
+              }
+            ]
+          }
+        ],
+        "environmentOptions": {
+          "emailNotificationType": "OnlyOnFailure",
+          "emailRecipients": "release.environment.owner;release.creator",
+          "skipArtifactsDownload": false,
+          "timeoutInMinutes": 0,
+          "enableAccessToken": false,
+          "publishDeploymentStatus": true,
+          "badgeEnabled": false,
+          "autoLinkWorkItems": false,
+          "pullRequestDeploymentEnabled": false
+        },
+        "demands": [],
+        "conditions": [
+          {
+            "name": "deploy",
+            "conditionType": 2,
+            "value": "4"
+          }
+        ],
+        "executionPolicy": {
+          "concurrencyCount": 1,
+          "queueDepthCount": 0
+        },
+        "schedules": [],      
+        "retentionPolicy": {
+          "daysToKeep": 30,
+          "releasesToKeep": 3,
+          "retainBuild": true
+        },
+        "processParameters": {},
+        "properties": {
+          "BoardsEnvironmentType": {
+            "$type": "System.String",
+            "$value": "unmapped"
+          },
+          "LinkBoardsWorkItems": {
+            "$type": "System.String",
+            "$value": "False"
+          }
+        },
+        "preDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "postDeploymentGates": {
+          "id": 0,
+          "gatesOptions": null,
+          "gates": []
+        },
+        "environmentTriggers": [],
+        "badgeUrl": ""
+      }
+    ],
+    "artifacts": [
+      {      
+        "type": "Build",
+        "alias": "_UCICDPLT-1624-Release Pipeline Automation-ASP.NET-CI",
+        "definitionReference": {
+          "artifactSourceDefinitionUrl": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionBranch": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionSpecific": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionTags": {
+            "id": "",
+            "name": ""
+          },
+          "defaultVersionType": {
+            "id": "latestType",
+            "name": "Latest"
+          },
+          "definition": {
+            "id": "",
+            "name": ""
+          },
+          "definitions": {
+            "id": "",
+            "name": ""
+          },
+          "IsMultiDefinitionType": {
+            "id": "False",
+            "name": "False"
+          },
+          "project": {
+            "id": "",
+            "name": ""
+          },
+          "repository": {
+            "id": "",
+            "name": ""
+          }
+        },
+        "isPrimary": true,
+        "isRetained": false
+      }
+    ],
+    "triggers": [],
+    "releaseNameFormat": "Release-$(rev:r)",
+    "tags": [],
+    "properties": {
+      "DefinitionCreationSource": {
+        "$type": "System.String",
+        "$value": "ReleaseNew"
+      },
+      "IntegrateBoardsWorkItems": {
+        "$type": "System.String",
+        "$value": "False"
+      },
+      "IntegrateJiraWorkItems": {
+        "$type": "System.String",
+        "$value": "false"
+      }
+    },
+    "id": 0,
+    "name": "",
+    "path": "\\",
+    "projectReference": null  
+  }
